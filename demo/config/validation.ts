@@ -6,11 +6,7 @@ import { WizardValues, Values } from "@/types";
 export const ContactInfoSchema = Yup.object({
   firstName: Yup.string().required("This field is required"),
   lastName: Yup.string().required("This field is required"),
-  age: Yup.number()
-    .min(0)
-    .positive()
-    .max(125)
-    .required("This field is required"),
+  linkedin: Yup.string().required("This field is required"),
   email: Yup.string().email(),
 });
 

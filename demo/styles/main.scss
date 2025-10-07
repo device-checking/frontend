@@ -18,6 +18,7 @@ html {
 
 .prose {
   @apply text-gray-300;
+
   h2 {
     @apply text-white;
   }
@@ -34,9 +35,118 @@ button,
   .navigation-wrapper {
     @apply flex items-center max-w-lg mx-auto;
   }
+
   button {
     span:not(.loading) {
       @apply sr-only lg:not-sr-only;
+    }
+  }
+}
+
+.checking {
+  width: 300px;
+
+  ul {
+    li {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      transition: all ease-in 300;
+
+      svg {
+        margin-right: 10px;
+        transition: all ease-in 300;
+      }
+
+      div {
+        width: 35px;
+      }
+    }
+  }
+}
+
+.loading-icon {
+  animation: spin 1s linear infinite;
+}
+
+.loading-icon-slow {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+h2.meeting-head {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.meeting-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.452);
+  border-radius: 8px;
+  height: 420px;
+
+  &-loading {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.modal-heading {
+  text-align: center;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.modal-content {
+  color: #333;
+}
+
+.modal-close{
+  color:black;
+  position: absolute;
+  right: 48px;
+  top:42px;
+}
+
+.one-line {
+  width: 3000px;
+}
+
+.copy-text {
+  position: relative;
+
+  &-button {
+    position: absolute;
+    display: flex;
+    right: 10px;
+    background-color: white;
+    color:black;
+    padding: 10px;
+    text-transform: none;
+    svg{
+      margin-right: 8px;
+    }
+    &:hover{
+      background-color: rgb(199, 195, 195);
     }
   }
 }

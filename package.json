@@ -45,7 +45,9 @@
     "install:local": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && npm run build && npm pack && tar -xzf rhf-wizard-$PACKAGE_VERSION.tgz && mv package rhf-wizard && yarn add ./rhf-wizard",
     "uninstall:local": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && yarn remove rhf-wizard && rm -rf rhf-wizard-$PACKAGE_VERSION.tgz rhf-wizard"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-modal": "^3.16.3"
+  },
   "devDependencies": {
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.10.0",

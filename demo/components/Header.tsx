@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useWizard } from "@/index";
 import { AppContext } from "../main";
 
 function Header() {
   const { isAnimated, setIsAnimated } = useContext(AppContext);
   const { stepNumber, totalSteps } = useWizard();
+  
   const completed = `${((stepNumber - 1) / (totalSteps - 1)) * 100}%`;
   const baseUrl =
     import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
@@ -13,18 +14,18 @@ function Header() {
     <header className="pt-4 pb-3">
       {/* Title, steps, source code link */}
       <div className="px-5 flex justify-between items-center prose max-w-none">
-        <h3 className="mb-0 text-sm xs:text-base sm:text-xl">rhf-wizard</h3>
+        <h3 className="mb-0 text-sm xs:text-base sm:text-xl">Investiment Interview Form</h3>
         <div className="flex items-center">
           <div className="mr-3 text-sm">
             <span className="hidden min-[400px]:inline">Step</span> {stepNumber}{" "}
             / {totalSteps}
           </div>
-          <a href="https://github.com/kennyhei/rhf-wizard" target="_blank">
+          {/* <a href="https://github.com/kennyhei/rhf-wizard" target="_blank">
             <img
               src={`${baseUrl}/github-mark-white.svg`}
               className="rounded-md w-9 my-0"
             />
-          </a>
+          </a> */}
         </div>
       </div>
       {/* Progress bar */}
@@ -38,7 +39,7 @@ function Header() {
         />
       </div>
       {/* Toggle animation */}
-      <div className="flex justify-end pr-5 prose max-w-none pt-1">
+      {/* <div className="flex justify-end pr-5 prose max-w-none pt-1">
         <label className="label cursor-pointer px-0">
           <span
             className={
@@ -55,7 +56,7 @@ function Header() {
             onChange={() => setIsAnimated(!isAnimated)}
           />
         </label>
-      </div>
+      </div> */}
     </header>
   );
 }
