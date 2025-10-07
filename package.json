@@ -12,11 +12,6 @@
     "dist",
     "src"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/rhf-wizard.es.js"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/kennyhei/rhf-wizard"
@@ -33,14 +28,10 @@
     "react-hook-form-wizard"
   ],
   "scripts": {
-    "dev": "vite",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "build": "tsc && vite build",
-    "build:demo": "vite build -c vite.demo.config.js",
-    "predeploy": "npm run build:demo",
-    "deploy": "gh-pages -d dist",
-    "preview": "vite preview",
-    "prepublishOnly": "npm run build",
+     "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+      "deploy": "gh-pages -d dist",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
     "install:local": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && npm run build && npm pack && tar -xzf rhf-wizard-$PACKAGE_VERSION.tgz && mv package rhf-wizard && yarn add ./rhf-wizard",
     "uninstall:local": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && yarn remove rhf-wizard && rm -rf rhf-wizard-$PACKAGE_VERSION.tgz rhf-wizard"
