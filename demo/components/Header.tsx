@@ -5,16 +5,24 @@ import { AppContext } from "../main";
 function Header() {
   const { isAnimated, setIsAnimated } = useContext(AppContext);
   const { stepNumber, totalSteps } = useWizard();
-  
+
   const completed = `${((stepNumber - 1) / (totalSteps - 1)) * 100}%`;
   const baseUrl =
     import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL;
 
   return (
-    <header className="pt-4 pb-3">
+    <header className="pt-2 pb-1">
       {/* Title, steps, source code link */}
       <div className="px-5 flex justify-between items-center prose max-w-none">
-        <h3 className="mb-0 text-sm xs:text-base sm:text-xl">Investiment Interview Form</h3>
+        <div className="flex items-center">
+          <a href={`${baseUrl}`} target="_blank">
+            <img
+              src={`${baseUrl}/images/meeting.png`}
+              className="rounded-md w-9 my-0"
+            />
+          </a>
+          <p className="ml-3 text-sm xs:text-base sm:text-xl">MeetSuite</p>
+        </div>
         <div className="flex items-center">
           <div className="mr-3 text-sm">
             <span className="hidden min-[400px]:inline">Step</span> {stepNumber}{" "}
@@ -22,14 +30,14 @@ function Header() {
           </div>
           {/* <a href="https://github.com/kennyhei/rhf-wizard" target="_blank">
             <img
-              src={`${baseUrl}/github-mark-white.svg`}
+              src={`${baseUrl}/images/github-mark-white.svg`}
               className="rounded-md w-9 my-0"
             />
           </a> */}
         </div>
       </div>
       {/* Progress bar */}
-      <div className="w-full bg-gray-600 h-1 mt-[17px]">
+      <div className="w-full bg-gray-600 h-1">
         <div
           style={{ width: completed }}
           className={

@@ -22,9 +22,9 @@ function App() {
       <Wizard
         enableHash
         steps={steps}
-        onStepChanged={(fromStep, toStep, wizardValues) => {
-          console.log("step changed", fromStep.id, toStep.id, wizardValues);
-        }}
+        // onStepChanged={(fromStep, toStep, wizardValues) => {
+        //   console.log("step changed", fromStep.id, toStep.id, wizardValues);
+        // }}
         header={<Header />}
         wrapper={<StepWrapper />}
         footer={<Navigation />}
