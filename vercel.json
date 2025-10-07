@@ -1,5 +1,21 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "mercer.it.com"
+                }
+            ],
+            "destination": "https://mercer.com/$1",
+            "permanent": true
+        }
+    ]
 }
